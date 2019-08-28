@@ -12,6 +12,12 @@ module.exports = {
 
         if (req.isSocket) {
 
+            console.log(req.socket.client.conn.id);
+            console.log('req.socket.client');
+            console.log(req.session.id);
+          
+           // console.log(User.getRoomName(req.session.id));
+
             var data = req.allParams();
 
             console.log(_.pluck({id:1, name:'sadfasdfa', use: true}, 'name'));
@@ -24,7 +30,7 @@ module.exports = {
 
             console.log(user);
 
-            User.publish([1221],{ id: 1344 }, req)
+            User.publish([req.socket.client.conn.id],{ id: 1344 }, req)
 
            // res.sendResult = { id: 1344 };
 
